@@ -1,0 +1,727 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{ /*css değişkeni*/
+    --main-color:red;
+    --black-color:black;
+    --border-image:0.1rem solid grey;
+}
+*{
+    font-family: "Poppins",sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    outline:none; /*anahat taslak*/
+    border: none;
+    text-decoration:none;
+    text-transform: capitalize;
+    transition: 0.2s ease;/*geçiş hızı verir.*/
+}
+
+/*! base html etiket codes*/
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;/*yana doğru olan tasmaları göstermez*/
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth; /* düz pürüzsüz */
+    /*1rem=10px*/
+}
+html::-webkit-scrollbar{
+    width: 0.8rem;
+    background-color: white;
+}
+html::-webkit-scrollbar-thumb{ /*track scrollbar baştan aşağı kaplar thumb ise normal uzunlukta bir kaydırma scrolu yaratır*/
+    border-radius: 3rem;
+    background-color:var(--black-color);
+     
+}
+html::-webkit-scrollbar-track{ 
+    background-color:transparent;
+
+}
+body{
+    background-color: var(--main-color);
+}
+section{
+    padding: 3.5rem 7%;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+     
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:2rem 3.75rem;
+    border-radius: 30rem;
+    font-size: 1.5rem;
+    color: #ccc;
+    background-color: black;
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity:0.9;
+}
+
+.headingg{
+    color: white;
+    text-transform: uppercase;
+    font-size: 4rem;
+    margin-bottom: 3.5rem;
+    border-bottom: 0.1rem solid white;
+}
+.headingg span{
+    text-transform: uppercase;
+    color: black;
+}
+
+
+/*HEADER start*/
+
+.header .search-form{
+    position: absolute;
+    top: 115%;
+    right: 7%;
+    background-color: white;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 3rem;
+    box-shadow: 0px 0px 25px 2px rgba(0 0 0 /75%);
+    transform: scaleY(0);
+}
+
+.header .search-form.active{
+    transform: scaleY(1);
+}
+
+.header .search-form i{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color: var(--black-color);
+}
+.header .search-form input{
+    margin-left: 1rem;
+    width: 100%;
+}
+
+
+.header .logo img{
+    height: 9rem;
+}
+.header{
+    background-color: white;
+    display: flex; /*esnek ekran gorunumu diye bir sey tım içeriği yan yana yapti*/
+    align-items: center;
+    justify-content: space-between; /* içeriği sollu sağlı ortali yapti.*/
+    padding: 0 7%; 
+    margin: 2rem 7%;
+    border-radius: 30rem;
+    box-shadow: 0px 0px 17px -2px rgba(0,0, 0, 0.75);
+    position: sticky; /*fixed gibi bir sey*/
+    top: 0;
+    z-index: 1000;
+}
+
+.header .nav-bar a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    border-bottom: 0.1rem solid transparent;
+}
+
+.header .nav-bar .active,
+.header .nav-bar a:hover{
+    border-color: var(--main-color);
+    padding-bottom: 0.5rem;
+}
+
+.header .buttons button{
+    cursor: pointer; /*imlec butonların üstüne geldiğinde el şeklini alır.*/
+    font-size: 2.2rem;
+    margin-left: 2rem;
+    background-color: transparent;/*saydam*/
+}
+
+.header .cart-items-container{
+    position: absolute;
+    top: 95%;
+    height: calc(100vh - 9rem);
+    width: 35rem;
+    background-color: white;
+    box-shadow: 0px 20px 14px 0px rgb(0 0 0 / 75%);
+    right: -100%;
+}
+.header .cart-items-container.active{
+    right: 3rem;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+.header .cart-items-container .cart-item .content h3{
+    font-size: 2rem;
+    color: var(--black-color);
+    padding-bottom: 0.5rem;
+}
+.header .cart-items-container .cart-item .content .price{
+    font-size: 1.5rem;
+    color: var(--black-color);
+}
+.header .cart-items-container .btn{
+    width: 100%;
+    border-radius: unset; /*set eder eski haline döndürür*/
+    text-align: center;
+}
+
+.header .cart-items-container .cart-item:hover{
+    box-shadow: 0px 0px 10px 0px rgb(0,0,0, 0.75);   
+}
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+
+.header .cart-items-container .cart-item .fa-times{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size:2rem;
+    cursor: pointer;
+    color: var(--black-color)   ;
+}
+
+.header #menu-btn{
+    display: none;
+}
+
+/*HEADER END
+
+
+
+
+
+
+
+
+/*Home Start*/
+
+.home{
+    min-height: 100.8vh; /*vh demek ekranın göründüğü kadar alan kapla*/
+    background: url(../images/20483615.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: -14rem;
+    display:flex;
+    align-items: center;
+}
+.home .content{
+    max-width: 60rem;
+}
+
+.home .content h3{
+    font-size: 60px;
+    color: white;   
+}
+.home .content p{
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #ccc;
+}
+/*Home End*/
+
+
+/*menu start*/
+
+.menu .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(26rem,1fr));
+    gap: 1.5rem;
+}
+.menu .box-container .box .box-head{
+    margin-right:14px;
+}
+.menu .box-container .box{
+    padding: 3rem;
+    background-color:white;
+    border-radius: 3rem;
+    min-height: 50rem;
+    display: grid;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu .box-container .box img{
+    width: 107%;                
+    object-fit: cover;
+}
+
+.menu .box-container .menu-category{
+    font-size: 13px;
+}
+
+.menu .box-container h3{
+    font-size: 20px;
+    padding: 1rem 0;
+}
+
+.menu .box-container .price{
+    font-size: 2.5rem;
+    
+    padding:0.5rem 0;
+}
+
+.menu .box-container .price span{
+    font-weight: 300;
+    font-size: 2rem;
+    text-decoration: line-through;
+}
+/*menu end*/
+
+
+
+
+
+
+
+
+/*product start*/
+
+.product .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(26rem,1fr));
+    gap: 1.5rem;
+}
+.product .box-container .box{
+    text-align: center;
+    padding: 3rem;
+    position: relative;
+    background-color:white;
+    border-radius: 3rem;
+    min-height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product .box-container .box .box-head{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 10;
+}
+
+.product .box-container .box .box-head .product-category{
+    font-size:14px;
+    
+} 
+
+.product .box-container .box .box-head .name{
+    font-size:3.1rem;
+    font-weight: bold; /*kalınlık ayarlar*/
+    text-align: start;
+    overflow-wrap: anywhere; /*text in taşmamasını sağlıyorum*/
+    
+} 
+.product .box-container .box img{
+    position: absolute;
+    width: 83%;
+    object-fit: cover;
+    border-radius: 3rem;
+    right:3rem;
+    top:17rem;
+} 
+.product .box-container .box#renk{
+    background-color: black;
+}
+.product .box-container .box#renk{
+    color: white;
+}   
+.product .box-container .box#renk #renk2{
+    color: white;
+}
+.product .box-container .box-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+}
+.product .box-container .box-bottom .info{
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   
+}
+.product .box-container .box-bottom .info .price{
+  font-size: 2.3rem;
+}
+.product .box-container .box-bottom .info .amount{
+    font-size: 1.4rem;
+}
+.product .box-container .box-bottom .product-btn a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 0.2rem solid var(--main-color);
+    width: 4rem;
+    height: 4rem;
+    color: red;
+}
+/*produt end*/
+
+
+
+/*about us start*/
+
+.about-us .row{
+    display: flex;   
+    flex-wrap:wrap;
+    column-gap: 2rem;
+}
+.about-us .row .image{
+    flex: 1 1 45rem;     /*BU RESPONSİVELİK İÇİN ÇOK ÖNEMLİ EKRANI KÜÇÜLTÜNCE BOYUTLANDIRMAYI AYARLAR*/
+}
+.about-us .row img{
+    width: 100%;    
+}
+.about-us .row .content{
+    flex: 1 1 45rem;
+}
+.about-us .row .content h3{
+    color: white;
+    font-size: 3rem;
+}
+.about-us .row .content p{
+    font-size: 1.6rem;
+    color: white;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+/*about us end*/
+
+
+
+
+
+
+/*review start*/
+.review .box-container{
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(30rem,10fr));/*bu responsivlik için çok önemli ekran küçüldüğü zaman
+    objelerin konumuyla ilgili karar kılar*/
+    /*grid-template-columns: 370px 370px 370px;*/
+    gap: 3rem;
+}
+.review .box-container .box{ /*.box:first-child dersem ilk kutuya işlem uygular*/
+    background-color:white;
+    border-radius: 3rem;  
+    text-align: center;  
+    padding: 2rem 3rem;
+}
+
+.review .box-container .box img{
+    width:70%;
+    object-fit: cover;
+}
+.review .box-container .box .user{
+    border-radius: 30rem;
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+}
+.review .box-container .box p{
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+}
+.review .box-container .box h3{
+    padding-top: 2rem;
+    font-size: 1.5rem;;
+}
+.review .box-container .box .stars i{
+    font-size: 15px;
+    color: gold;
+}
+/*review end*/
+
+
+
+
+
+
+
+
+/*contact start*/
+.contact .content{
+    display: flex;
+    background-color: var(--black-color);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.contact .content .map{
+    flex: 1 1 45rem;
+    width: 100%;   /*bunalar sayesinde responsivlik sağlanır site küçültüldüğünde background color kötü durmaz*/
+    object-fit: cover;
+}
+.contact .content .panel{
+    flex: 1 1 45rem;
+    padding: 2.9rem 2rem;
+    text-align: center;
+    object-fit: cover;
+}
+.contact .content .panel h3{
+    margin-top: 35px;
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
+     
+}
+.contact .content .panel .inputbox{
+    display: flex;
+    border:1px solid red;
+    padding: 20px 20px 20px 0px;
+    margin: 13px;
+    font-size: 1.5rem;
+}
+.contact .content .panel .inputbox i{
+    padding-left: 1.2rem;
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+}
+.contact .content .panel .inputbox input{
+    background-color:transparent;
+    padding-left: 10px;
+    color: white;
+}
+.contact .content .panel .btn{
+    margin-top: 10px;
+    background-color: white;
+    color: red;
+    font-weight: bold;
+
+}
+.contact h1{
+    color: black;
+}
+.contact h1 span{
+    color: white;
+} 
+/*contact end*/
+
+
+
+
+/*blog start*/
+
+.blog .box-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(30rem,10fr));
+    gap: 2rem;
+     
+}
+.blog .box-container .box{
+    
+    background-color: white;
+    border-radius: 3rem;
+     
+}
+.blog .box-container .box .image{
+    height: 25rem;
+    overflow: hidden;
+    width: 100%;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+}
+.blog .box-container .box .image img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+.blog .box-container .box:hover .image img{
+    transform: scale(1.2); /*görüntü bize yakınlaşma yapıyor efekt.*/
+}
+.blog .box-container .box .content{
+    padding: 2rem;     
+}
+
+.blog .box-container .box .content .title{
+    font-size: 2.5rem;
+    line-height: 1.5rem;
+}
+.blog .box-container .box .content span{
+    display: block;
+    font-size: 1.7rem;
+    padding-top: 1rem;    
+}
+
+.blog .box-container .box .content p{
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color:wheat;
+    padding: 1rem 0;
+}
+/*blog end*/
+
+
+
+/*footer start*/
+
+.footer{
+    background-color: black;
+    text-align: center;
+    
+    /*
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    */
+}
+.footer .panel{
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+    margin-top: 1rem;
+}
+.footer .panel .input{
+    width: 25rem;
+    margin-top: 2rem;
+    border-radius: 3rem;
+}
+ 
+.footer .panel .btnn{
+    margin-top: 2rem;
+    color: white;
+    background-color: red;
+    padding: 1rem 2rem;   
+    border-radius: 3rem;
+    cursor: pointer;    
+}
+.footer .share{
+    padding: 2rem 0;
+    
+}
+.footer .share a{
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    color: white;
+    font-size: 20px;
+    border: var(--border-image);
+    border-radius: 50%;
+    margin: 0.3rem;
+}
+
+.footer .share a:hover{
+   background-color: red;
+}
+
+.footer .nav-bar{
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+    padding: 1rem;
+}
+.footer .nav-bar a{    
+    color: white;
+    background-color: red;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    border: var(--border-image);
+}
+.footer .nav-bar a:hover{
+    background-color: black;
+    opacity:0.7;
+}
+
+.footer .nav-bar a.active{
+    background-color: var(--black-color);
+}
+.footer p{
+    padding-top: 2rem;
+    color: white;
+    font-size: 1.5rem;
+}
+.footer p span{
+    color:red;
+}
+/*footer end*/
+
+
+
+/*responsive start*/
+
+@media (max-width:991px) {
+    /*
+    body{
+        display: none; /*bunun sayesinde ekran 991 px ve altına küçültme yaptığında beyaz olur
+    }
+    */
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 1.5rem 2rem;
+    }
+    .header .logo img{
+        height: 7rem;
+    }
+
+    section{
+        padding: 2rem;
+    }
+    .product .box-container .box .box-head .name{
+         font-size: 2.8rem;
+    }
+}
+
+
+
+
+@media (max-width:768px){
+    .header #menu-btn{
+        display: inline-block;
+    }
+    .header .nav-bar{
+        position: absolute;
+        top: 95%;
+        background: white;
+        height: calc(100vh - 9rem);
+        width: 30rem;
+        box-shadow: 0px 20px 14px 0px rgb(0 0 0 / 75%);
+        right: -100%;
+    }
+    .header .nav-bar a{
+        display: block;
+        color: var(--black-color);
+        margin: 1.5rem;
+        font-size: 2rem;
+    }
+    .header .nav-bar.active{
+        right: 3rem;
+    }
+
+    
+
+}
+@media (max-width:576px){
+    html{
+        font-size: 50%;
+    }
+
+}
+/*responsive end/       
